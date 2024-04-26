@@ -159,14 +159,18 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		//クロス積計算結果の表示
 		VectorScreenPrintf(0, 0, cross, "Cross");
 
-		//三角形の表示
-		Novice::DrawTriangle(
-			int(screenVertices[0].x), int(screenVertices[0].y),
-			int(screenVertices[1].x), int(screenVertices[1].y),
-			int(screenVertices[2].x), int(screenVertices[2].y),
-			RED,
-			kFillModeSolid
-		);
+		//三角形が表を向いていたら表示する
+		if (screenVertices[1].x > screenVertices[2].x) {
+
+			//三角形の表示
+			Novice::DrawTriangle(
+				int(screenVertices[0].x), int(screenVertices[0].y),
+				int(screenVertices[1].x), int(screenVertices[1].y),
+				int(screenVertices[2].x), int(screenVertices[2].y),
+				RED,
+				kFillModeSolid
+			);
+		}
 
 		///
 		/// ↑描画処理ここまで
